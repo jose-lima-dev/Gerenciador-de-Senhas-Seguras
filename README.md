@@ -1,7 +1,3 @@
-Claro! Aqui está um README completo e profissional para o seu projeto **Gerenciador de Senhas Seguras**:
-
----
-
 # Gerenciador de Senhas Seguras
 
 ## Descrição
