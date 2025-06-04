@@ -97,8 +97,7 @@ src/
 
 ## Contato
 
-Para dúvidas, sugestões ou contribuições:
-**Seu Nome** — [joselimaprofissional18@gmail.com](mailto:seu.email@example.com)
+Para dúvidas, sugestões ou contribuições: [joselimaprofissional18@gmail.com](mailto:seu.email@example.com)
 
 ---
 
