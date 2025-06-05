@@ -1,4 +1,4 @@
-package app;
+package org.example;
 
 import controller.PasswordController;
 import util.DatabaseHelper;
