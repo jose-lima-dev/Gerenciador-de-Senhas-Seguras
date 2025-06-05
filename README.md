@@ -1,7 +1,3 @@
-Claro! Aqui está um README completo e profissional para o seu projeto **Gerenciador de Senhas Seguras**:
-
----
-
 # Gerenciador de Senhas Seguras
 
 ## Descrição
@@ -35,17 +31,19 @@ Aplicação em Java para armazenar e gerenciar senhas de forma segura. Permite c
 ## Estrutura do Projeto
 
 ```
+
 src/
- ├── main/
- │    ├── java/
- │    │    ├── controller/          # Lógica de controle do app
- │    │    ├── dao/                 # Acesso a banco de dados
- │    │    ├── model/               # Modelos de dados
- │    │    ├── service/             # Serviços (autenticação, criptografia, etc)
- │    │    └── util/                # Helpers e utilitários (ex: conexão DB)
- │    └── resources/
- └── test/                         # Testes unitários (opcional)
-```
+├── main/
+│    ├── java/
+│    │    ├── controller/          # Lógica de controle do app
+│    │    ├── dao/                 # Acesso a banco de dados
+│    │    ├── model/               # Modelos de dados
+│    │    ├── service/             # Serviços (autenticação, criptografia, etc)
+│    │    └── util/                # Helpers e utilitários (ex: conexão DB)
+│    └── resources/
+└── test/                         # Testes unitários (opcional)
+
+````
 
 ---
 
@@ -55,25 +53,29 @@ src/
 
     * Java JDK 21 instalado
     * Maven instalado
-    * Banco SQLite configurado (arquivo `senhas.db` será criado automaticamente)
 
 2. **Clonar o repositório:**
 
    ```bash
    git clone https://github.com/jose-lima-dev/Gerenciador-de-Senhas-Seguras
-   cd GerenciadorSenhasSeguras
-   ```
+   cd Gerenciador-de-Senhas-Seguras
+````
 
-3. **Build e execução:**
+3. Compilar e Executar:
 
-   ```bash
-   mvn clean compile exec:java -Dexec.mainClass="App"
-   ```
+   Execute a aplicação iniciando a classe `app.App`.
 
-4. **Uso:**
+   > A execução pode ser feita via sua IDE (como IntelliJ ou Eclipse), ou utilizando um comando Maven que chame a classe principal do aplicativo.
 
-    * Ao abrir o app, autentique-se com a senha mestre (padrão: `senha123`) e configure o 2FA.
-    * Use o menu para adicionar, listar, gerar, verificar e deletar senhas.
+---
+
+## Uso
+
+* Ao iniciar o app, será criado automaticamente um novo banco de dados local (`senhas.db`).
+* A senha mestre padrão é: `senha123`.
+* Configure o 2FA escaneando o QR Code exibido no terminal ou digitando a chave no Google Authenticator.
+* O código 2FA *muda a cada execução* do aplicativo.
+* Utilize o menu para adicionar, listar, gerar, verificar e excluir senhas.
 
 ---
 
@@ -83,6 +85,8 @@ src/
 * Abra o app Google Authenticator no celular e escaneie o QR Code ou insira manualmente a chave secreta.
 * Digite o código gerado pelo app para concluir a autenticação.
 
+> ⚠️ O código 2FA **é gerado dinamicamente a cada execução**. Para cada nova sessão, um novo QR Code será apresentado.
+
 ---
 
 ## Observações
@@ -90,20 +94,17 @@ src/
 * **Senha mestre:** Está fixa como `"senha123"` para simplificação. Em produção, implemente armazenamento e verificação segura.
 * **Criptografia:** Senhas são criptografadas com AES antes de armazenar no banco.
 * **Segurança:** Nunca armazene senhas em texto puro!
-* **Banco de dados:** Verifique se o arquivo `senhas.db` está na pasta correta e acessível.
+* **Banco de dados:** O arquivo `senhas.db` é gerado automaticamente ao iniciar o app.
 * **Melhorias futuras:** Suporte a sincronização na nuvem, modo offline, interface gráfica Swing/JavaFX.
 
 ---
 
 ## Contato
 
-Para dúvidas, sugestões ou contribuições:
-**Seu Nome** — [joselimaprofissional18@gmail.com](mailto:seu.email@example.com)
+Para dúvidas, sugestões ou contribuições: [joselimaprofissional18@gmail.com](mailto:joselimaprofissional18@gmail.com)
 
 ---
 
 ## Licença
 
 Projeto aberto sob a licença MIT. Veja o arquivo LICENSE para detalhes.
-
----
