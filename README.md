@@ -1,110 +1,133 @@
-# Gerenciador de Senhas Seguras
+# Gerenciador de Senhas Seguras 🔒
 
-## Descrição
+## Sobre o Projeto
 
-Aplicação em Java para armazenar e gerenciar senhas de forma segura. Permite cadastro, criptografia, autenticação com 2FA, geração de senhas fortes, verificação de vazamentos e persistência em banco de dados SQLite.
+Um gerenciador de senhas seguro desenvolvido em Java que oferece armazenamento criptografado de senhas, autenticação de dois fatores (2FA), geração de senhas fortes e verificação de vazamentos. O projeto foi desenvolvido com foco em segurança e usabilidade.
 
----
+## ✨ Funcionalidades
 
-## Funcionalidades
+- 🔐 **Senha Mestra Personalizada**
+   - Configure sua própria senha mestra na primeira execução
+   - Requisitos mínimos de segurança (maiúsculas, minúsculas, números, caracteres especiais)
 
-* **Cadastro de senhas:** Armazenamento de credenciais (serviço, usuário, senha) com criptografia AES.
-* **Autenticação:** Login com senha mestre + autenticação de dois fatores (2FA) via TOTP (Google Authenticator).
-* **Geração de senhas seguras:** Gerador de senhas aleatórias fortes personalizável pelo usuário.
-* **Verificação de vazamento:** Integração com API externa para checar se a senha foi exposta em vazamentos.
-* **Banco de dados:** Persistência das senhas em banco SQLite local.
-* **Exclusão de senhas:** Remoção de senhas específicas pelo ID.
+- 🔑 **Autenticação de Dois Fatores (2FA)**
+   - Integração com Google Authenticator
+   - QR Code e chave secreta para configuração
+   - Proteção adicional para acesso ao sistema
 
----
+- 📝 **Gerenciamento de Senhas**
+   - Adicionar novas credenciais (serviço, usuário, senha)
+   - Listar todas as senhas armazenadas
+   - Remover senhas específicas (requer confirmação)
+   - Criptografia AES para armazenamento seguro
 
-## Tecnologias Utilizadas
+- 🎲 **Geração de Senhas Seguras**
+   - Gerador de senhas aleatórias
+   - Personalizável (comprimento, tipos de caracteres)
 
-* Java 21
-* SQLite (via JDBC)
-* Google Authenticator (biblioteca `com.warrenstrange:googleauth`)
-* Apache Commons Codec (para hash e criptografia)
-* API HaveIBeenPwned (para verificação de vazamentos)
-* Maven (gerenciamento de dependências e build)
+- 🔍 **Verificação de Vazamentos**
+   - Integração com API HaveIBeenPwned
+   - Verifica se suas senhas foram expostas em vazamentos
 
----
+## 🛠️ Tecnologias
 
-## Estrutura do Projeto
+- **Java 21** - Linguagem de programação
+- **SQLite** - Banco de dados local
+- **Maven** - Gerenciamento de dependências
+- **Bibliotecas:**
+   - `com.warrenstrange:googleauth` - Implementação 2FA
+   - `org.xerial:sqlite-jdbc` - Driver SQLite
+   - `commons-codec` - Criptografia e hash
 
-```
+## 📦 Instalação
 
-src/
-├── main/
-│    ├── java/
-│    │    ├── controller/          # Lógica de controle do app
-│    │    ├── dao/                 # Acesso a banco de dados
-│    │    ├── model/               # Modelos de dados
-│    │    ├── service/             # Serviços (autenticação, criptografia, etc)
-│    │    └── util/                # Helpers e utilitários (ex: conexão DB)
-│    └── resources/
-└── test/                         # Testes unitários (opcional)
+### Pré-requisitos
 
-````
+- Java JDK 21
+- Maven
 
----
+### Passos para Instalação
 
-## Como Rodar
-
-1. **Pré-requisitos:**
-
-    * Java JDK 21 instalado
-    * Maven instalado
-
-2. **Clonar o repositório:**
-
+1. Clone o repositório:
    ```bash
    git clone https://github.com/jose-lima-dev/Gerenciador-de-Senhas-Seguras
    cd Gerenciador-de-Senhas-Seguras
-````
+   ```
 
-3. Compilar e Executar:
+2. Compile o projeto (caso o "mvn" não seja reconhecido, pode pular para a próxima etapa):
+   ```bash
+   mvn clean package
+   ```
 
-   Execute a aplicação iniciando a classe `app.App`.
+3. Execute o JAR gerado:
+   ```bash
+   java -jar target/GerenciadorSenhasSeguras-1.0-SNAPSHOT-jar-with-dependencies.jar
+   ```
 
-   > A execução pode ser feita via sua IDE (como IntelliJ ou Eclipse), ou utilizando um comando Maven que chame a classe principal do aplicativo.
+## 🚀 Primeiro Uso
 
----
+1. **Configuração Inicial**
+   - Na primeira execução, você será guiado para criar sua senha mestra
+   - Siga os requisitos de segurança apresentados
 
-## Uso
+2. **Configuração 2FA**
+   - Instale o Google Authenticator no seu celular
+   - Escaneie o QR Code apresentado ou insira a chave secreta manualmente
+   - Digite o código de 6 dígitos para validar
 
-* Ao iniciar o app, será criado automaticamente um novo banco de dados local (`senhas.db`).
-* A senha mestre padrão é: `senha123`.
-* Configure o 2FA escaneando o QR Code exibido no terminal ou digitando a chave no Google Authenticator.
-* O código 2FA *muda a cada execução* do aplicativo.
-* Utilize o menu para adicionar, listar, gerar, verificar e excluir senhas.
+3. **Menu Principal**
+   - Escolha entre as opções disponíveis:
+      1. Adicionar senha
+      2. Listar senhas
+      3. Gerar senha segura
+      4. Verificar vazamento de senha
+      5. Remover senha
+      0. Sair
 
----
+## 📁 Estrutura do Projeto
 
-## Configuração do 2FA
+```
+src/
+├── main/
+│   ├── java/
+│   │   ├── controller/    # Lógica de controle
+│   │   ├── dao/          # Acesso ao banco
+│   │   ├── model/        # Modelos de dados
+│   │   ├── service/      # Serviços (auth, crypto)
+│   │   └── util/         # Utilitários
+│   └── resources/        # Recursos
+└── test/                # Testes unitários
+```
 
-* Na primeira autenticação, o app exibe uma chave secreta e um link QR Code.
-* Abra o app Google Authenticator no celular e escaneie o QR Code ou insira manualmente a chave secreta.
-* Digite o código gerado pelo app para concluir a autenticação.
+## 🔒 Segurança
 
-> ⚠️ O código 2FA **é gerado dinamicamente a cada execução**. Para cada nova sessão, um novo QR Code será apresentado.
+- Todas as senhas são criptografadas com AES antes do armazenamento
+- Senha mestra armazenada com hash seguro e salt
+- Autenticação de dois fatores obrigatória
+- Confirmação de senha mestra para operações críticas
+- Verificação de vazamentos antes do armazenamento
 
----
+## 📝 Notas Importantes
 
-## Observações
+- O banco de dados (`data/senhas.db`) é criado automaticamente
+- A pasta `data/` contém arquivos de configuração - não apague!
+- Mantenha sua chave 2FA em local seguro
+- Faça backup regular do diretório `data/`
 
-* **Senha mestre:** Está fixa como `"senha123"` para simplificação. Em produção, implemente armazenamento e verificação segura.
-* **Criptografia:** Senhas são criptografadas com AES antes de armazenar no banco.
-* **Segurança:** Nunca armazene senhas em texto puro!
-* **Banco de dados:** O arquivo `senhas.db` é gerado automaticamente ao iniciar o app.
-* **Melhorias futuras:** Suporte a sincronização na nuvem, modo offline, interface gráfica Swing/JavaFX.
+## 👥 Contribuição
 
----
+Contribuições são bem-vindas! Para contribuir:
 
-## Contato
+1. Faça um Fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-Para dúvidas, sugestões ou contribuições: [joselimaprofissional18@gmail.com](mailto:joselimaprofissional18@gmail.com)
+## 📧 Contato
 
----
+José Lima - [joselimaprofissional18@gmail.com](mailto:joselimaprofissional18@gmail.com)
 
-## Licença
+## 📄 Licença
 
-Projeto aberto sob a licença MIT. Veja o arquivo LICENSE para detalhes.
+Este projeto está sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
