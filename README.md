@@ -59,9 +59,14 @@ Um gerenciador de senhas seguro desenvolvido em Java que oferece armazenamento c
    mvn clean package
    ```
 
-3. Execute o JAR gerado:
+3. Execute o JAR gerado (caso o JAR não funcione em sua máquina, siga para a etapa 4:
    ```bash
    java -jar target/GerenciadorSenhasSeguras-1.0-SNAPSHOT-jar-with-dependencies.jar
+   ```
+
+4. Execute o App gerado em:
+   ```bash
+   src/main/java/app/App.java
    ```
 
 ## 🚀 Primeiro Uso
